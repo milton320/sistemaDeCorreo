@@ -22,18 +22,10 @@ Route::get('/', function () {
 Route::get('/personal', function () {
     return view('personal.index');
 });
-Route::get('/crear', function () {
-    return view('personal.create');
-});
 
 /** ROUTES DE EXTERNO */
 Route::resource('/externo', ExternoController::class);
 
-
-Route::get('/crearExterno', function () {
-    return view('externo.create');
-});
-Route::get('/externo/{id}/derivar', [ ExternoController::class, 'derivar'] )->name('externo.derivar');
 
 /** ROUTES DE DERIVAOD */
 

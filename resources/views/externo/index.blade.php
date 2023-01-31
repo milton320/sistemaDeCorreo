@@ -9,6 +9,7 @@
             <a href="{{ route('externo.create') }}" class="btn btn-outline-success float-right">
                 Nueva Correspondencia
             </a>
+            
         </div>
     </div>
 @stop
@@ -31,7 +32,7 @@
                         <th scope="col">RESPONSABLE</th>
                         <th scope="col">IMAGEN</th>
                         <th scope="col">FECHA INNGRESO</th>
-                        <th scope="col">PERSONA_ID</th>
+                        <th scope="col">USUARIO</th>
                         <th scope="col">ACCIONES</th>
 
                     </tr>
@@ -51,7 +52,7 @@
                         <td>{{ $item->responsable }}</td>
                         <td>{{ $item->imagen }}</td>
                         <td>{{ $item->fecha_ingreso }}</td>
-                        <td>{{ $item->usuario_id }}</td>
+                        <td>{{ $item->name }}</td>
 
                         
                         <td>
@@ -59,12 +60,13 @@
                             <a href="{{ route('externo.edit', $item) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <button class="btn btn-outline-danger">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                            <a href="{{ route('externo.edit', $item) }}"  class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="derivar">
-                                <i class="fas fa-reply"></i>
-                            </a>
+                            <form action="{{ route('externo.destroy', $item) }}" method="POST" class="form-eliminar">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
                             
                         </td>
                         
@@ -111,4 +113,35 @@
             }
         });
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('eliminar')=='ok')
+<script>
+    Swal.fire(
+            'Eliminado!',
+            'la Persona ha sido eliminada.',
+            'success'
+            )
+</script>    
+@endif
+<script>
+    $('.form-eliminar').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+        title: 'estas seguro?',
+        text: "los datos de la persona, se eliminaran!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText:'Cancelar'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            
+            this.submit()
+        }
+        })
+    })
+</script>
 @stop

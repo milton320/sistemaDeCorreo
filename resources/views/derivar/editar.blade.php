@@ -17,9 +17,10 @@
                
         <form method="POST" action="{{ route('derivado.store')}}">
         @csrf
+        @method('PUT')
             <div class="mb-3">
                 <label for="externo_id" class="form-label">Coorrespondencia</label>
-                <select class="js-example-basic-single js-states form-control" name="externo_id">
+                <select class="js-example-basic-single js-states form-control" name="externo_id" >
                     @foreach ($externo as $item)
                         <option value="{{ $item->id }}"  >{{ $item->titulo }}</option>
                     @endforeach
@@ -27,16 +28,16 @@
             </div>
             <div class="mb-3">
                 <label for="derivado" class="form-label">Derivado</label>
-                <select class="js-example-basic-single js-states form-control" style="width: 75%" name="derivado">
+                <select class="js-example-basic-single js-states form-control" style="width: 75%" name="derivado" >
                     @foreach ($usuario as $item)
-                        <option value="{{ $item->id }}"  >{{ $item->name }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
             </div>
             
             <div class="mb-3">
                 <label for="observaciones" class="form-label">Observaciones</label>
-                <input type="text" class="form-control" id="observaciones" name="observaciones" aria-descr>
+                <input type="text" class="form-control" id="observaciones" name="observaciones" aria-descr value="{{ $deriva->observaciones }}">
             </div>
                    
             <br>

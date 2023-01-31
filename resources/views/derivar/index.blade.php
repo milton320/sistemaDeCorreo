@@ -22,6 +22,7 @@
                         <th scope="col">NRO</th>
                         <th scope="col">DERIVADO </th>
                         <th scope="col">OBSERVACIONES</th>
+                        <th scope="col">TITULO</th>
                         <th scope="col">OPCIONES</th>
 
                     </tr>
@@ -30,18 +31,21 @@
                     @foreach($deriva as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->derivado }}</td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->observaciones }}</td>
-
+                        <td>{{ $item->titulo }}</td>
                         <td>
                             <a href="{{ route('derivado.edit', $item) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <button class="btn btn-outline-danger">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+                            <form action="{{ route('derivado.destroy', $item) }}" method="POST" class="form-eliminar">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
                         </td>
-                        
                     </tr>
                     @endforeach
                 </tbody>
@@ -95,6 +99,37 @@
             console.log(id);
         }
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if(session('eliminar')=='ok')
+    <script>
+        Swal.fire(
+                'Eliminado!',
+                'la Persona ha sido eliminada.',
+                'success'
+                )
+    </script>    
+    @endif
+    <script>
+        $('.form-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: 'estas seguro?',
+            text: "los datos de la persona, se eliminaran!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText:'Cancelar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                
+                this.submit()
+            }
+            })
+        })
+    </script>
     <script> console.log('Hi!'); </script>
     {{--Datatables--}}
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -119,4 +154,5 @@
             }
         });
     </script>
+    
 @stop
