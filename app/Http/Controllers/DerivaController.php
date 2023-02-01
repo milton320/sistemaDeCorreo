@@ -46,6 +46,12 @@ class DerivaController extends Controller
     public function store(StoreDerivaRequest $request)
     {
         //
+        $derivar = new Deriva;
+        $derivar->observaciones = $request->observaciones;
+        $derivar->derivado = $request->derivado;
+        $derivar->externo_id = $request->externo_id;
+        $derivar->save();
+        return redirect('derivado');
     }
 
     /**

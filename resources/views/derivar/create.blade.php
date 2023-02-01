@@ -15,21 +15,21 @@
 <div class="card">
     <div class="card-body">
                
-        <form method="POST" action="{{ route('externo.store')}}">
+        <form method="POST" action="{{ route('derivado.store')}}">
         @csrf
             <div class="mb-3">
                 <label for="categoria_id" class="form-label">Coorrespondencia</label>
-                <select class="form-control" name="categoria_id">
+                <select class="form-control" name="externo_id">
                     @foreach ($externo as $item)
-                        <option value="{{ $item->id }}"  >{{ $item->titulo }}</option>
+                        <option value="{{ $item->id }}"  selected>{{ $item->titulo }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
                 <label for="categoria_id" class="form-label">Derivado</label>
-                <select class="form-control" name="categoria_id">
+                <select class="form-control" name="derivado">
                     @foreach ($usuario as $item)
-                        <option value="{{ $item->id }}"  >{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
                     @endforeach
                 </select>
             </div>
