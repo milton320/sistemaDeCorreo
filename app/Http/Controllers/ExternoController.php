@@ -16,7 +16,13 @@ class ExternoController extends Controller
     public function index()
     {
         //
-        $externo = Externo::all();
+        $externo = Externo::join("users","users.id", "=", "externos.usuario_id")
+        ->select("users.id","name","titulo","institucion_remitente","persona_firmante","asunto","fecha_documento","tipo_documento","cite","via","responsable","imagen","fecha_ingreso")
+        //->where("autors.deleted_at", "is", "null")
+        ->get();
+
+
+        //$externo = Externo::all();
         return view('externo.index', compact('externo')) ;
     }
 
@@ -84,16 +90,12 @@ class ExternoController extends Controller
     public function edit(Externo $externo)
     {
         //
-        if($externo->observaciones === "Ninguno" ){
-            dd($externo->observaciones);
-        }
-        
         return view('externo.editar', compact('externo')); 
     }
     public function derivar(Externo $externo)
     {
         //
-        dd($externo);
+
         $destructuracion = $externo->all();
         $datos = $destructuracion[0];
         //dd($datos);
@@ -112,13 +114,9 @@ class ExternoController extends Controller
         //
         
         $validated = $request->validated();
-        if($request->input('observaciones') == "Ninguno"){
-            $externo->update($request->all());
-            return redirect('/externo');    
-        }else{
-            $externo->update($request->all());
-            return redirect('/externo.derivados');
-        }
+        $externo->update($request->all());
+        return redirect('/externo');    
+        
         
     }
 
@@ -131,5 +129,7 @@ class ExternoController extends Controller
     public function destroy(Externo $externo)
     {
         //
+        $externo->delete();
+        return redirect('externo')->with('eliminar','ok');
     }
 }

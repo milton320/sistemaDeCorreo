@@ -17,11 +17,14 @@ class DerivaController extends Controller
      */
     public function index()
     {
-        //
+        //SELECT d.id, e.titulo , d.derivado, e.id FROM derivas d INNER JOIN externos e ON d.id = e.id;
+        $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
+        ->join("users", "users.id", "=", "externos.usuario_id")
+        ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "name")
+        //->where("autors.deleted_at", "is", "null")
+        ->get();
         
-        $externo = Externo::all();
-        $deriva = Deriva::all();
-        return view('derivar.index', compact('deriva', 'externo')) ;
+        return view('derivar.index', compact('deriva')) ;
     }
 
     /**
@@ -46,12 +49,12 @@ class DerivaController extends Controller
     public function store(StoreDerivaRequest $request)
     {
         //
-        $derivar = new Deriva;
-        $derivar->observaciones = $request->observaciones;
-        $derivar->derivado = $request->derivado;
-        $derivar->externo_id = $request->externo_id;
-        $derivar->save();
-        return redirect('derivado');
+        $deriva = new Deriva;
+        $deriva->derivado = $request->derivado;
+        $deriva->observaciones = $request->observaciones;
+        $deriva->externo_id = $request->externo_id;
+        $deriva->save();
+        return redirect('derivar');
     }
 
     /**
@@ -74,8 +77,10 @@ class DerivaController extends Controller
     public function edit(Deriva $deriva)
     {
         //
-
-        dd($deriva->all());
+        dd($deriva);
+        $usuario = User::all();
+        $externo = Externo::all();
+        return view('derivar.editar', compact('deriva','externo', 'usuario')); 
     }
 
     /**
@@ -99,5 +104,7 @@ class DerivaController extends Controller
     public function destroy(Deriva $deriva)
     {
         //
+        $deriva->delete();
+        return redirect('derivado')->with('eliminar','ok');
     }
 }
