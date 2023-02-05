@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 /** ROUTES DE PERSONAL */
 Route::get('/personal', function () {
     return view('personal.index');
@@ -30,3 +34,4 @@ Route::resource('/externo', ExternoController::class);
 /** ROUTES DE DERIVAOD */
 
 Route::resource('/derivado', DerivaController::class);
+

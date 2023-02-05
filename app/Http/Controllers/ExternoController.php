@@ -134,5 +134,6 @@ class ExternoController extends Controller
   
         $externo->delete();
         return redirect('externo')->with('eliminar','ok');
+        
     }
 }
