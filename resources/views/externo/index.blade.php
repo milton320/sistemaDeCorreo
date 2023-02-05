@@ -50,7 +50,9 @@
                         <td>{{ $item->cite }}</td>
                         <td>{{ $item->via }}</td>
                         <td>{{ $item->responsable }}</td>
-                        <td>{{ $item->imagen }}</td>
+                        <td>
+                            <img with="60" height="60" src="{{ Storage::url($item->imagen ) }}">
+                        </td>
                         <td>{{ $item->fecha_ingreso }}</td>
                         <td>{{ $item->name }}</td>
 
@@ -67,6 +69,7 @@
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
+                            
                             
                         </td>
                         

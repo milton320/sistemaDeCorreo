@@ -15,7 +15,7 @@
 <div class="card">
     <div class="card-body">
                
-        <form method="POST" action="{{ route('derivado.store')}}">
+        <form method="POST" action="{{ route('derivado.store')}}" >
         @csrf
             <div class="mb-3">
                 <label for="externo_id" class="form-label">Coorrespondencia</label>

@@ -59,7 +59,9 @@ class ExternoController extends Controller
         $externo->cite = $request->cite;
         $externo->via = $request->via;
         $externo->responsable = $request->responsable;
-        $externo->imagen = $request->imagen;
+        $request->hasFile('imagen');
+        $imagen = $request->file('imagen')->store('public/externos');
+        $externo->imagen = $imagen;
         $externo->derivado = 0;
         $externo->observaciones = "Ninguno";
         $externo->fecha_ingreso = $request->fecha_ingreso;
@@ -129,6 +131,7 @@ class ExternoController extends Controller
     public function destroy(Externo $externo)
     {
         //
+  
         $externo->delete();
         return redirect('externo')->with('eliminar','ok');
     }
