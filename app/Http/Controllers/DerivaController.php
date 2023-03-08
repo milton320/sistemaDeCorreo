@@ -20,7 +20,7 @@ class DerivaController extends Controller
         //SELECT d.id, e.titulo , d.derivado, e.id FROM derivas d INNER JOIN externos e ON d.id = e.id;
         $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
         ->join("users", "users.id", "=", "externos.usuario_id")
-        ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "name")
+        ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "name","externos.id")
         //->where("autors.deleted_at", "is", "null")
         ->get();
         
@@ -77,7 +77,7 @@ class DerivaController extends Controller
     public function edit(Deriva $deriva)
     {
         //
-        dd($deriva);
+        
         $usuario = User::all();
         $externo = Externo::all();
         return view('derivar.editar', compact('deriva','externo', 'usuario')); 
@@ -105,6 +105,6 @@ class DerivaController extends Controller
     {
         //
         $deriva->delete();
-        return redirect('derivado')->with('eliminar','ok');
+        return redirect('/derivado')->with('eliminar','ok');
     }
 }

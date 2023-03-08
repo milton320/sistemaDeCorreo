@@ -20,7 +20,7 @@
             <table class="table table-striped" id="externo">
                 <thead>
                     <tr>
-                        <th scope="col">NRO</th>
+                        
                         <th scope="col">TITULO </th>
                         <th scope="col">INSTITUCION</th>
                         <th scope="col">PERSONA</th>
@@ -40,7 +40,7 @@
                 <tbody>
                     @foreach($externo as $item)
                     <tr>
-                        <td>{{ $item->id }}</td>
+                        
                         <td>{{ $item->titulo }}</td>
                         <td>{{ $item->institucion_remitente }}</td>
                         <td>{{ $item->persona_firmante }}</td>
@@ -54,51 +54,12 @@
                             <img with="60" height="60" src="{{ Storage::url($item->imagen ) }}"  class="gallery-item">
                         </td>
                         <td>{{ $item->fecha_ingreso }}</td>
-                        <td>{{ $item->name }}</td>
-
-                        
-                        <td>
-                        
-                            <a href="{{ route('externo.edit', $item) }}"  class="btn btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <form action="{{ route('externo.destroy', $item) }}" method="POST" class="form-eliminar">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-outline-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                            <a href="{{ route('externo.show', $item) }}"  class="btn btn-outline-warning">
-                                <i class="fas fa-eye"></i>
-                            </a>
-
-                        </td>
-                        
+                        <td>{{ $item->name }}</td>                       
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            <!-- Modal -->
-            <div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-                        <h4 class="modal-title">Modal Heading</h4>
-                        
-                    </div>
-                    <div class="modal-body">
-                        <img src="img/1.jpg" class="modal-img" alt="modal img">
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-            </div>
+            
         </div>
     </div>
 @stop

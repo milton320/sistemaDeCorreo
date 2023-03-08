@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Externo;
 use App\Http\Requests\StoreExternoRequest;
 use App\Http\Requests\UpdateExternoRequest;
+use Illuminate\View\View;
 
 class ExternoController extends Controller
 {
@@ -17,7 +18,7 @@ class ExternoController extends Controller
     {
         //
         $externo = Externo::join("users","users.id", "=", "externos.usuario_id")
-        ->select("users.id","name","titulo","institucion_remitente","persona_firmante","asunto","fecha_documento","tipo_documento","cite","via","responsable","imagen","fecha_ingreso")
+        ->select("externos.id","name","titulo","institucion_remitente","persona_firmante","asunto","fecha_documento","tipo_documento","cite","via","responsable","imagen","fecha_ingreso")
         //->where("autors.deleted_at", "is", "null")
         ->get();
 
@@ -78,9 +79,14 @@ class ExternoController extends Controller
      * @param  \App\Models\Externo  $externo
      * @return \Illuminate\Http\Response
      */
-    public function show(Externo $externo)
+    public function show(Externo $externo): View
     {
-        //
+        dd($externo);
+        return view('externo.view', 
+            [
+                'externo' => Externo::findOrFail($externo)
+            ]       
+        ) ;
     }
 
     /**
@@ -92,6 +98,7 @@ class ExternoController extends Controller
     public function edit(Externo $externo)
     {
         //
+        
         return view('externo.editar', compact('externo')); 
     }
     public function derivar(Externo $externo)
@@ -114,7 +121,7 @@ class ExternoController extends Controller
     public function update(UpdateExternoRequest $request, Externo $externo)
     {
         //
-        
+       
         $validated = $request->validated();
         $externo->update($request->all());
         return redirect('/externo');    

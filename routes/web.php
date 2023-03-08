@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
 Auth::routes();
 
@@ -28,10 +28,10 @@ Route::get('/personal', function () {
 });
 
 /** ROUTES DE EXTERNO */
-Route::resource('/externo', ExternoController::class);
+Route::resource('/externo', ExternoController::class)->withTrashed();
 
 
 /** ROUTES DE DERIVAOD */
 
-Route::resource('/derivado', DerivaController::class);
+Route::resource('/derivado', DerivaController::class)->withTrashed();
 

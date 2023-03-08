@@ -18,6 +18,7 @@
         <form method="POST" action="{{ route('derivado.store')}}">
         @csrf
         @method('PUT')
+        {{method_field('put')}} 
             <div class="mb-3">
                 <label for="externo_id" class="form-label">Coorrespondencia</label>
                 <select class="js-example-basic-single js-states form-control" name="externo_id" >

@@ -27,8 +27,8 @@
                 <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $externo->titulo }}"   aria-descr>
             </div>
             <div class="mb-3">
-                <label for="institucion" class="form-label">Institucion Remitente</label>
-                <input type="text" class="form-control" id="institucion" name="institucion" value="{{ $externo->institucion_remitente }}"   aria-descr>
+                <label for="institucion_remitente" class="form-label">Institucion Remitente</label>
+                <input type="text" class="form-control" id="institucion_remitente" name="institucion_remitente" value="{{ $externo->institucion_remitente }}"   aria-descr>
             </div>
             <div class="mb-3">
                 <label for="persona_firmante" class="form-label">Persona Firmante</label>
@@ -78,7 +78,7 @@
             
             <br>
             
-            <button type="submit" class="btn btn-success">REGISTRAR</button>
+            <button type="submit" class="btn btn-success">ACTUALIZAR</button>
             <button type="submit" class="btn btn-primary">CANCELAR</button>
             
         </form>
