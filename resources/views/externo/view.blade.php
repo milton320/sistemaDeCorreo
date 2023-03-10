@@ -17,48 +17,80 @@
 @section('content')
 <div class="card">
         <div class="card-body">
-            <table class="table table-striped" id="externo">
-                <thead>
-                    <tr>
+            <div class="row">
+                <div class="col col-md-12">
+                    <h4 style="text-align: center;">HOJA DE TRANSMISION</h4>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table" border="1">
+                    <thead>                 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PARA</td>
+                            <td>HORA</td>
+                            <td>FECHA</td>
+                            <!-- <img with="60" height="60" src="{{ Storage::url($externo->imagen ) }}"  class="gallery-item"> -->
+                        </tr>
+                        <tr>
+                            <td colspan="3">DE:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Tipo de Documento:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">CITE:  {{$externo->cite}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Via</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Asunto</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Comentarios/instruciones</td>
+                        </tr>
                         
-                        <th scope="col">TITULO </th>
-                        <th scope="col">INSTITUCION</th>
-                        <th scope="col">PERSONA</th>
-                        <th scope="col">ASUNTO</th>
-                        <th scope="col">FEHCA DOC</th>
-                        <th scope="col">TIPO DOC</th>
-                        <th scope="col">CITE</th>
-                        <th scope="col">VIA</th>
-                        <th scope="col">RESPONSABLE</th>
-                        <th scope="col">IMAGEN</th>
-                        <th scope="col">FECHA INNGRESO</th>
-                        <th scope="col">USUARIO</th>
-                        <th scope="col">ACCIONES</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($externo as $item)
-                    <tr>
                         
-                        <td>{{ $item->titulo }}</td>
-                        <td>{{ $item->institucion_remitente }}</td>
-                        <td>{{ $item->persona_firmante }}</td>
-                        <td>{{ $item->asunto }}</td>
-                        <td>{{ $item->fecha_documento }}</td>
-                        <td>{{ $item->tipo_documento }}</td>
-                        <td>{{ $item->cite }}</td>
-                        <td>{{ $item->via }}</td>
-                        <td>{{ $item->responsable }}</td>
-                        <td>
-                            <img with="60" height="60" src="{{ Storage::url($item->imagen ) }}"  class="gallery-item">
-                        </td>
-                        <td>{{ $item->fecha_ingreso }}</td>
-                        <td>{{ $item->name }}</td>                       
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+                <table class="table" border="1">
+                    <thead>                 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PARA</td>
+                            <td>HORA</td>
+                            <td>FECHA</td>
+                            <!-- <img with="60" height="60" src="{{ Storage::url($externo->imagen ) }}"  class="gallery-item"> -->
+                        </tr>
+                        <tr>
+                            <td colspan="3">DE:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Tipo de Documento:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">CITE</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Via</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Asunto</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Comentarios/instruciones</td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+            
             
         </div>
     </div>

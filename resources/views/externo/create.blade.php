@@ -23,9 +23,9 @@
                         <label for="titulo" class="form-label">Titulo</label>
                         <select class="form-control" aria-label="Default select example" name="titulo">
                             <option selected></option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="uno">One</option>
+                            <option value="dos">Two</option>
+                            <option value="tres">Three</option>
                         </select>
                     </div>    
                     <div class="col col-6">

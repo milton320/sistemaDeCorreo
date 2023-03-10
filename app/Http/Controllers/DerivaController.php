@@ -36,6 +36,7 @@ class DerivaController extends Controller
     {
         //
         $usuario = User::all();
+        
         $externo = Externo::all();
         return view('derivar.create', compact('externo', 'usuario' ));
     }

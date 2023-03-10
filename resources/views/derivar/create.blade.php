@@ -40,7 +40,7 @@
                     <label for="derivado" class="form-label">Derivado</label>
                     <select class="js-example-basic-single js-states form-control" name="derivado">
                         @foreach ($usuario as $item)
-                            <option value="{{ $item->id }}" >{{ $item->name }}</option>
+                            <option value="{{auth()->user()->id}}" >{{auth()->user()->id}}</option>
                         @endforeach
                     </select>
                 </div>

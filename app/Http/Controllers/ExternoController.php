@@ -81,12 +81,7 @@ class ExternoController extends Controller
      */
     public function show(Externo $externo): View
     {
-        dd($externo);
-        return view('externo.view', 
-            [
-                'externo' => Externo::findOrFail($externo)
-            ]       
-        ) ;
+        return view('externo.view', compact('externo'));;
     }
 
     /**
