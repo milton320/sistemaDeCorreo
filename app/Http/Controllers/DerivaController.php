@@ -7,6 +7,7 @@ use App\Http\Requests\StoreDerivaRequest;
 use App\Http\Requests\UpdateDerivaRequest;
 use App\Models\Externo;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class DerivaController extends Controller
 {
@@ -17,14 +18,29 @@ class DerivaController extends Controller
      */
     public function index()
     {
-        //SELECT d.id, e.titulo , d.derivado, e.id FROM derivas d INNER JOIN externos e ON d.id = e.id;
-        $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
-        ->join("users", "users.id", "=", "externos.usuario_id")
-        ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "name","externos.id")
-        //->where("autors.deleted_at", "is", "null")
-        ->get();
+
         
-        return view('derivar.index', compact('deriva')) ;
+        $id = auth()->id();
+
+        if($id != 1){
+            $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
+            ->join("users", "users.id", "=", "derivas.usuario_id")
+            ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "users.name","externos.id")
+            ->where("derivas.usuario_id", "=", $id)
+            ->get();    
+            return view('derivar.index', compact('deriva')) ;
+        }
+        else{
+            $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
+            ->join("users", "users.id", "=", "derivas.usuario_id")
+            ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "users.name","externos.id")
+            //->where("derivas.usuario_id", "=", $id)
+            ->get();    
+            return view('derivar.index', compact('deriva')) ;
+        }
+        //dd($id);
+        //SELECT d.id, e.titulo , d.derivado, e.id FROM derivas d INNER JOIN externos e ON d.id = e.id;
+        
     }
 
     /**
@@ -54,8 +70,9 @@ class DerivaController extends Controller
         $deriva->derivado = $request->derivado;
         $deriva->observaciones = $request->observaciones;
         $deriva->externo_id = $request->externo_id;
+        $deriva->usuario_id = $request->derivado;
         $deriva->save();
-        return redirect('derivar');
+        return redirect('/derivado');
     }
 
     /**

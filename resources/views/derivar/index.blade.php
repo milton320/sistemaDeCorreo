@@ -9,7 +9,7 @@
             <a href="{{ route('derivado.create') }}" class="btn btn-outline-success float-right">
                 Nueva derivacion
             </a>
-            <p>{{auth()->user()->id}}</p>
+            <p>{{auth()->user()->name}}</p>
         </div>
     </div>
 @stop
