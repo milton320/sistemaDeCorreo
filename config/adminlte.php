@@ -323,12 +323,7 @@ return [
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',
         ],
-        [
-            'text'        => 'Cerrar Sesion',
-            'url'         => 'logout',
-            'icon'        => 'fas fa-walking',
-            'label_color' => 'danger',
-        ],
+        
         
     ],
 

@@ -28,7 +28,7 @@ class DerivaController extends Controller
             ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "users.name","externos.id")
             ->where("derivas.usuario_id", "=", $id)
             ->get();    
-            return view('derivar.index', compact('deriva')) ;
+            return view('derivar.derivados', compact('deriva')) ;
         }
         else{
             $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
