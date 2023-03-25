@@ -305,7 +305,7 @@ return [
         ['header' => 'PERSONAL'],
         [
             'text'        => 'Personal',
-            'url'         => 'usuarios',
+            'url'         => 'personal',
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',
         ],
@@ -323,6 +323,7 @@ return [
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',
         ],
+        
         
     ],
 

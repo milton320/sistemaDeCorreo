@@ -5,11 +5,11 @@
 @section('content_header')
     <div class="card">
         <div class="card-body">
-            <strong>Dereivados <h4>Bienvenido Administrador</h4></strong>
+            <strong>Dereivados <h4>Bienvenido {{auth()->user()->name}}</h4></strong>
             <a href="{{ route('derivado.create') }}" class="btn btn-outline-success float-right">
                 Nueva derivacion
             </a>
-            <p>{{auth()->user()->name}}</p>
+            <p></p>
         </div>
     </div>
 @stop

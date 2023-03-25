@@ -16,17 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 /** ROUTES DE PERSONAL */
 Route::get('/personal', function () {
     return view('personal.index');
 });
 
 /** ROUTES DE EXTERNO */
-Route::resource('/externo', ExternoController::class);
+Route::resource('/externo', ExternoController::class)->withTrashed();
 
 
 /** ROUTES DE DERIVAOD */
 
-Route::resource('/derivado', DerivaController::class);
+Route::resource('/derivado', DerivaController::class)->withTrashed();
+

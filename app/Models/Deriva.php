@@ -14,8 +14,12 @@ class Deriva extends Model
         'derivado',
         'observaciones',
         'externo_id',
-        
+        'usuario_id',
     ];
+
+    public function personal(){
+        return $this->belongsTo(User::class);
+    }
     public function externo(){
         return $this->belongsTo(Externo::class);
     }

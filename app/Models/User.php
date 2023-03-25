@@ -20,6 +20,9 @@ class User extends Authenticatable
     public function externo(){
         return $this->hasMany(Externo::class);
     }
+    public function deriva(){
+        return $this->hasMany(Deriva::class);
+    }
     protected $fillable = [
         'name',
         'email',

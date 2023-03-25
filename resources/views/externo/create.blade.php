@@ -15,7 +15,7 @@
 <div class="card">
     <div class="card-body">
                
-        <form method="POST" action="{{ route('externo.store')}}">
+        <form method="POST" action="{{ route('externo.store')}}" enctype="multipart/form-data">
         @csrf
             <div class="col col-12">
                 <div class="row">
@@ -23,9 +23,9 @@
                         <label for="titulo" class="form-label">Titulo</label>
                         <select class="form-control" aria-label="Default select example" name="titulo">
                             <option selected></option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="uno">One</option>
+                            <option value="dos">Two</option>
+                            <option value="tres">Three</option>
                         </select>
                     </div>    
                     <div class="col col-6">
@@ -87,7 +87,7 @@
                 <div class="row">
                     <div class="col col-6">
                         <label for="imagen" class="form-label">Imagen</label>
-                        <input type="text" class="form-control" id="imagen" name="imagen" aria-descr>
+                        <input type="file" class="form-control-file" name="imagen" accept="image/*">
                     </div>
                     <div class="col col-6">
                         <label for="fecha_ingreso" class="form-label">Fecha Ingreso</label>
