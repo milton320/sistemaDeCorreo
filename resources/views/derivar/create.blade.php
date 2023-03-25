@@ -29,7 +29,7 @@
         @csrf
             <div class="row">
                 <div class="col col-md-12 col-sm-6 mb-3">
-                    <label for="externo_id" class="form-label">Coorrespondencia</label>
+                    <label for="externo_id" class="form-label">Correspondencia</label>
                     <select class="js-example-basic-single js-states form-control" name="externo_id">
                         @foreach ($externo as $item)
                             <option value="{{ $item->id }}"  >{{ $item->titulo }}</option>

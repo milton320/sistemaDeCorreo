@@ -18,7 +18,7 @@ class ExternoController extends Controller
     {
         //
         $externo = Externo::join("users","users.id", "=", "externos.usuario_id")
-        ->select("externos.id","name","titulo","institucion_remitente","persona_firmante","asunto","fecha_documento","tipo_documento","cite","via","responsable","imagen","fecha_ingreso")
+        ->select("externos.id","name","titulo","institucion_remitente","persona_firmante","asunto","fecha_documento","tipo_documento","cite","via","responsable","imagen","fecha_ingreso","nro")
         //->where("autors.deleted_at", "is", "null")
         ->get();
 

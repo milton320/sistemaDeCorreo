@@ -40,7 +40,7 @@
                 <tbody>
                     @foreach($externo as $item)
                     <tr>
-                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->nro }}</td>
                         <td>{{ $item->titulo }}</td>
                         <td>{{ $item->institucion_remitente }}</td>
                         <td>{{ $item->persona_firmante }}</td>
