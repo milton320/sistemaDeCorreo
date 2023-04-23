@@ -5,9 +5,9 @@
 @section('content_header')
     <div class="card">
         <div class="card-body">
-            <strong>Dereivados <h4>Bienvenido Administrador</h4></strong>
+            <strong><h4>Bienvenido Administrador</h4></strong>
             <a href="{{ route('derivado.create') }}" class="btn btn-outline-success float-right">
-                Nueva derivacion
+                Nuevo Responsable
             </a>
             <p>{{auth()->user()->name}}</p>
         </div>

@@ -31,12 +31,12 @@
                 <label for="externo_id" class="form-label">Coorrespondencia</label>
                 <select class="js-example-basic-single js-states form-control" name="externo_id">
                     @foreach ($externo as $item)
-                        <option value="{{ $item->id }}"  selected>{{ $item->titulo }}</option>
+                        <option value="{{ $item->id }}"  selected> {{ $item->nro }} {{ $item->titulo }} {{$item->institucion_remitente}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
-                <label for="derivado" class="form-label">Derivado</label>
+                <label for="derivado" class="form-label">Derivar a: </label>
                 <select class="js-example-basic-single js-states form-control" style="width: 75%" name="derivado">
                     @foreach ($usuario as $item)
                         <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
@@ -46,7 +46,7 @@
             
             <div class="row">
                 <div class="col col-md-8 mb-3">
-                    <label for="observaciones" class="form-label">Observaciones</label>
+                    <label for="observaciones" class="form-label">Comentarios e instrucciones</label>
                     <input type="text" class="form-control" id="observaciones" name="observaciones" aria-descr>
                 </div>
             </div>

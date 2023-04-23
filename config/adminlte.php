@@ -311,14 +311,20 @@ return [
         ],
         ['header' => 'CORRESPONDENCIA'],
         [
-            'text'        => 'Correspondencia',
+            'text'        => 'Correspondencia Externa',
             'url'         => 'externo',
             'icon'        => 'fas fa-envelope',
             'label_color' => 'success',
         ],
-        ['header' => 'DERIVADO'],
+        ['header' => 'DERIVAR RESPONSABLE'],
         [
-            'text'        => 'Derivado',
+            'text'        => 'Asignar Responsable',
+            'url'         => 'derivado',
+            'icon'        => 'fas fa-user-friends',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Notas Transmitidas',
             'url'         => 'derivado',
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',

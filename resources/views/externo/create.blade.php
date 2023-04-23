@@ -20,12 +20,12 @@
             <div class="col col-12">
                 <div class="row">
                     <div class="col col-6">
-                        <label for="titulo" class="form-label">Titulo</label>
+                        <label for="titulo" class="form-label">Proyecto</label>
                         <select class="form-control" aria-label="Default select example" name="titulo">
                             <option selected></option>
-                            <option value="uno">One</option>
-                            <option value="dos">Two</option>
-                            <option value="tres">Three</option>
+                            <option value="HELVETAS Bolivia">HELVETAS Bolivia</option>
+                            <option value="Proyecto Pasos">Proyecto Pasos</option>
+                            <option value="Proyecto Basura Cero">Proyecto Basura Cero</option>
                         </select>
                     </div>    
                     <div class="col col-6">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col col-6">
                         <label for="fecha_documento" class="form-label">Fecha de Documento</label>
-                        <input type="text" class="form-control" id="fecha_documento" name="fecha_documento" aria-descr value="<?php echo date("Y-m-d"); ?>" >
+                        <input type="date" class="form-control" id="fecha_documento" name="fecha_documento" aria-descr  >
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col col-6">
                         <label for="fecha_ingreso" class="form-label">Fecha Ingreso</label>
-                        <input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso" aria-descr>        
+                        <input type="text" class="form-control" id="fecha_ingreso" name="fecha_ingreso" aria-descr value="<?php echo date("Y-m-d"); ?>">        
                     </div>
                 </div>
             </div>

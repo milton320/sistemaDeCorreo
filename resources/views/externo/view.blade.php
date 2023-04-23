@@ -44,13 +44,13 @@
                             <td colspan="3">CITE:  {{$externo->cite}}</td>
                         </tr>
                         <tr>
-                            <td colspan="3">Via</td>
+                            <td colspan="3"><b>Via:</b> {{$externo->via}}</td>
                         </tr>
                         <tr>
-                            <td colspan="3">Asunto</td>
+                            <td colspan="3"><b>Asunto:</b> {{$externo->asunto}}</td>
                         </tr>
                         <tr>
-                            <td colspan="3">Comentarios/instruciones</td>
+                            <td colspan="3"><b>Comentarios/instruciones:</b> {{$externo->observaciones}}</td>
                         </tr>
                         
                         
