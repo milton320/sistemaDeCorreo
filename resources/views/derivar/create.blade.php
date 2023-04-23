@@ -7,7 +7,7 @@
     <style>
         .select2-container .select2-selection--single{
             height: 40px !important;
-            width: 57% !important;
+            
         }
     </style>
 @stop
@@ -27,21 +27,34 @@
                
         <form method="POST" action="{{ route('derivado.store')}}" >
         @csrf
-            <div class="mb-3">
-                <label for="externo_id" class="form-label">Coorrespondencia</label>
-                <select class="js-example-basic-single js-states form-control" name="externo_id">
-                    @foreach ($externo as $item)
-                        <option value="{{ $item->id }}"  selected> {{ $item->nro }} {{ $item->titulo }} {{$item->institucion_remitente}}</option>
-                    @endforeach
-                </select>
+            <div class="">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="externo_id" class="form-label">Coorrespondencia</label>
+                    </div>
+                    <div class="col col-12">
+                        <select class="js-example-basic-single js-states form-control" style="width: 75%" name="externo_id">
+                            @foreach ($externo as $item)
+                                <option value="{{ $item->id }}"  selected> {{ $item->nro }} {{ $item->titulo }} {{$item->institucion_remitente}}</option>
+                            @endforeach
+                        </select>
+                        
+                    </div>
+                </div>    
             </div>
-            <div class="mb-3">
-                <label for="derivado" class="form-label">Derivar a: </label>
-                <select class="js-example-basic-single js-states form-control" style="width: 75%" name="derivado">
-                    @foreach ($usuario as $item)
-                        <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
-                    @endforeach
-                </select>
+            <div class="">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="derivado" class="form-label">Derivar a: </label>
+                    </div>
+                    <div class="col-12">
+                        <select class="js-example-basic-single js-states form-control" style="width: 75%" name="derivado">
+                            @foreach ($usuario as $item)
+                                <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
             
             <div class="row">
