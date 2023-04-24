@@ -18,11 +18,11 @@ class DerivaController extends Controller
      */
     public function index()
     {
-
-        
+        $user = auth()->user();
+        $user->name;
         $id = auth()->id();
 
-        if($id != 1){
+        if($user->name != "admin"){
             $deriva = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
             ->join("users", "users.id", "=", "derivas.usuario_id")
             ->select("derivas.id","derivas.derivado","derivas.observaciones", "externos.titulo", "users.name","externos.id")
@@ -95,7 +95,7 @@ class DerivaController extends Controller
     public function edit(Deriva $deriva)
     {
         //
-        
+        dd($deriva);
         $usuario = User::all();
         $externo = Externo::all();
         return view('derivar.editar', compact('deriva','externo', 'usuario')); 

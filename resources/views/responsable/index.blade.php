@@ -5,11 +5,8 @@
 @section('content_header')
     <div class="card">
         <div class="card-body">
-            <strong><h4>Bienvenido {{auth()->user()->name}}</h4></strong>
-            <a href="{{ route('derivado.create') }}" class="btn btn-outline-success float-right">
-                Nuevo Responsable
-            </a>
-            <p></p>
+            <strong><h4>Bienvenido Administrador</h4></strong>
+            <p>{{auth()->user()->name}}</p>
         </div>
     </div>
 @stop
@@ -24,35 +21,26 @@
                         <th scope="col">DERIVADO </th>
                         <th scope="col">OBSERVACIONES</th>
                         <th scope="col">TITULO</th>
-                        @if((auth()->user()->name) == "admin")
-                            <th scope="col">OPCIONES</th>
-                        @endif
+                        <th scope="col">OPCIONES</th>
 
                     </tr>
                 </thead>
                 <tbody>
+                
                     @foreach($deriva as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->observaciones }}</td>
                         <td>{{ $item->titulo }}</td>
-                        @if((auth()->user()->name) == "admin")
-                            <td>
-                                <a href="{{ route('derivado.edit', $item) }}"  class="btn btn-outline-primary">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <form action="{{ route('derivado.destroy', $item) }}" method="POST" class="form-eliminar">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-outline-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        @endif
+                        <td>
+                            <a href="{{ route('responsable.edit', $item) }}"  class="btn btn-outline-success">
+                            <i class="fas fa-eye"></i>
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
+                
                 </tbody>
             </table>
 

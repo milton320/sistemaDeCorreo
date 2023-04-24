@@ -24,9 +24,7 @@
                         <th scope="col">DERIVADO </th>
                         <th scope="col">OBSERVACIONES</th>
                         <th scope="col">TITULO</th>
-                        @if((auth()->user()->name) == "admin")
-                            <th scope="col">OPCIONES</th>
-                        @endif
+                        <th scope="col">OPCIONES</th>
 
                     </tr>
                 </thead>
@@ -37,20 +35,18 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->observaciones }}</td>
                         <td>{{ $item->titulo }}</td>
-                        @if((auth()->user()->name) == "admin")
-                            <td>
-                                <a href="{{ route('derivado.edit', $item) }}"  class="btn btn-outline-primary">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <form action="{{ route('derivado.destroy', $item) }}" method="POST" class="form-eliminar">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-outline-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        @endif
+                        <td>
+                            <a href="{{ route('derivado.edit', $item) }}"  class="btn btn-outline-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form action="{{ route('derivado.destroy', $item) }}" method="POST" class="form-eliminar">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

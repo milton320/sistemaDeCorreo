@@ -325,7 +325,7 @@ return [
         ],
         [
             'text'        => 'Notas Transmitidas',
-            'url'         => 'derivado',
+            'url'         => 'responsable',
             'icon'        => 'fas fa-user-friends',
             'label_color' => 'success',
         ],

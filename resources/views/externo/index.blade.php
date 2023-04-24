@@ -5,11 +5,12 @@
 @section('content_header')
     <div class="card">
         <div class="card-body">
-            <strong>Personal <h4>Bienvenido Administrador</h4></strong>
+            <strong><h4>Bienvenido </h4></strong>
+            @if((auth()->user()->name) == "admin")
             <a href="{{ route('externo.create') }}" class="btn btn-outline-success float-right">
                 Nueva Correspondencia
             </a>
-            
+            @endif
         </div>
     </div>
 @stop
@@ -33,8 +34,9 @@
                         <th scope="col">IMAGEN</th>
                         <th scope="col">FECHA INNGRESO</th>
                         <th scope="col">USUARIO</th>
+                        @if((auth()->user()->name) == "admin")
                         <th scope="col">ACCIONES</th>
-
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +60,7 @@
 
                         
                         <td>
-                        
+                            @if((auth()->user()->name) == "admin")
                             <a href="{{ route('externo.edit', $item) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
@@ -72,7 +74,7 @@
                             <a href="{{ route('externo.show', $item) }}"  class="btn btn-outline-warning">
                                 <i class="fas fa-eye"></i>
                             </a>
-
+                            @endif
                         </td>
                         
                     </tr>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DerivaController;
 use App\Http\Controllers\ExternoController;
+use App\Http\Controllers\ResponsableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,4 +35,8 @@ Route::resource('/externo', ExternoController::class)->withTrashed();
 /** ROUTES DE DERIVAOD */
 
 Route::resource('/derivado', DerivaController::class)->withTrashed();
+
+/** ROUTES DE DERIVAOD */
+
+Route::resource('/responsable', ResponsableController::class)->withTrashed();
 

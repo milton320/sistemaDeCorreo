@@ -35,6 +35,7 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->observaciones }}</td>
                         <td>{{ $item->titulo }}</td>
+                        @if((auth()->user()->name) == "admin")
                         <td>
                             <a href="{{ route('derivado.edit', $item) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
@@ -47,6 +48,7 @@
                                 </button>
                             </form>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
