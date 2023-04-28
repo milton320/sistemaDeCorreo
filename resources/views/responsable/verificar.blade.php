@@ -6,9 +6,7 @@
     <div class="card">
         <div class="card-body">
             <strong><h4>Bienvenido {{auth()->user()->name}}</h4></strong>
-            <a href="{{ route('derivado.create') }}" class="btn btn-outline-success float-right">
-                Nuevo Responsable
-            </a>
+            
             <p></p>
         </div>
     </div>
@@ -24,32 +22,20 @@
                         <th scope="col">DERIVADO </th>
                         <th scope="col">OBSERVACIONES</th>
                         <th scope="col">TITULO</th>
-                        <th scope="col">OPCIONES</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($deriva as $item)
+                    @foreach($cons as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->observaciones }}</td>
                         <td>{{ $item->titulo }}</td>
-                        <td>
-                            <a href="{{ route('derivado.edit', $item) }}"  class="btn btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <form action="{{ route('derivado.destroy', $item) }}" method="POST" class="form-eliminar">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-outline-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
+                
             </table>
 
         </div>

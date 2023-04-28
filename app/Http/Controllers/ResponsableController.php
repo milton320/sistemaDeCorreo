@@ -80,11 +80,14 @@ class ResponsableController extends Controller
      */
     public function edit(Deriva $responsable)
     {
-        //
-        dd($responsable);
-        $usuario = User::all();
-        $externo = Externo::all();
-        return view('derivar.editar', compact('deriva','externo', 'usuario')); 
+        //Select d.derivado, s.name from derivas d INNER JOIN users s ON s.id = d.usuario_id INNER JOIN externos e ON e.id = d.externo_id WHERE d.id = 11 ;
+        $cons = Deriva::join("externos","externos.id", "=", "derivas.externo_id")
+            ->join("users", "users.id", "=", "derivas.usuario_id")
+            ->select("derivas.derivado","derivas.observaciones", "externos.titulo", "users.name","externos.id","derivas.id")
+            ->where("derivas.id", "=", $responsable->id)
+            ->get();    
+        return view('responsable.verificar', compact('cons')) ;
+
     }
 
     /**
@@ -94,9 +97,10 @@ class ResponsableController extends Controller
      * @param  \App\Models\Responsable  $responsable
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateResponsableRequest $request, Responsable $responsable)
+    public function update(UpdateResponsableRequest $request, Externo $responsable)
     {
         //
+        dd($responsable);
     }
 
     /**

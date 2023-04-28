@@ -24,6 +24,7 @@ class User extends Authenticatable
         return $this->hasMany(Deriva::class);
     }
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',

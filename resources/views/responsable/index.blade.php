@@ -35,8 +35,13 @@
                         <td>{{ $item->titulo }}</td>
                         <td>
                             <a href="{{ route('responsable.edit', $item) }}"  class="btn btn-outline-success">
-                            <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye"></i>
                             </a>
+                            <form method="POST" action="{{ route('responsable.update', $item) }}">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success">ACTUALIZAR</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
